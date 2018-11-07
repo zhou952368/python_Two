@@ -44,8 +44,8 @@ class User:
 
 if __name__ == '__main__':
     user = User()
-    # user.insert()
+    user.insert()
     # user.delete()
     # print(user.select())
-    print(user.select_all())
-    user.update()
+    # print(user.select_all())
+    # user.update()

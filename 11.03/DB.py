@@ -7,11 +7,11 @@ class Db:
         self.db = pymysql.connect("127.0.0.1", "root", "952368", "python", charset='utf8')
         self.cursor = self.db.cursor()
 
-    def insert_phone(self, ID, Brand, type, Price, quantity, Version):
-        sql = 'insert into phone(ID, Brand, type, Price, quantity, Version) value (%s,%s,%s,%s,%s,%s)'
+    def insert_phone(self, *args):
+        sql = 'insert into phone(ID, Brand, type, Price, quantity, Version) value (%s,%s,%s,%s,%s,%s)' % (args)
         try:
             # 执行sql插入语句
-            self.cursor.execute(sql, (ID, Brand, type, Price, quantity, Version))
+            self.cursor.execute(sql)
             # 提交到数据库执行
             self.db.commit()
             print("添加成功")
